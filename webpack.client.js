@@ -1,0 +1,15 @@
+const path = require("path");
+const merge = require("webpack-merge");
+const base = require("./webpack.base");
+
+console.log('Base is...', base);
+const config = {
+  entry: "./src/client",
+
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "public")
+  }
+};
+
+module.exports = merge(base, config);

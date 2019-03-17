@@ -3,7 +3,7 @@ const Home = () => {
   return (
     <div>
       {" "}
-      <div>I am home Component</div>
+      <div>Initial home Component</div>
       <button onClick={() => console.log("Click event is Fired")}>
         Press me
       </button>{" "}

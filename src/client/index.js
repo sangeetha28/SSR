@@ -1,5 +1,12 @@
 import React from "react";
-import Home from "./components/Home";
+import Routes from "../Routes";
+import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom";
 
-ReactDOM.render(<Home />, document.querySelector("#root"));
+//BrowserRouter has the ability to look directly at the address Bar
+ReactDOM.render(
+  <BrowserRouter>
+    <Routes />
+  </BrowserRouter>,
+  document.querySelector("#root")
+);

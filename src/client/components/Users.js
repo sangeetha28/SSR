@@ -23,13 +23,19 @@ class Users extends Component {
   }
 }
 
+// there is no connect / provider to access the server side redux store, so accessing the store directly
+const loadData = store => store.dispatch(fetchUsers());
+
 const mapStateToProps = state => {
   return {
     userList: state.users
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchUsers }
-)(Users);
+export default {
+  component: connect(
+    mapStateToProps,
+    { fetchUsers }
+  )(Users),
+  loadData
+};

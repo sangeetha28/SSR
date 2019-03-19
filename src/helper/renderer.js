@@ -4,12 +4,15 @@ import Home from "../client/components/Home";
 import { StaticRouter } from "react-router-dom";
 import Routes from "../Routes";
 import { Provider } from "react-redux";
-export default (req,store) => {
+import { renderRoutes } from "react-router-config";
+import  serialize from "serialize-javascript";
+
+export default (req, store) => {
   const content = renderToString(
     <Provider store={store}>
-    <StaticRouter location={req.path} context={{}}>
-      <Routes />
-    </StaticRouter>
+      <StaticRouter location={req.path} context={{}}>
+        <div>{renderRoutes(Routes)}</div>
+      </StaticRouter>
     </Provider>
   );
 
@@ -22,6 +25,9 @@ export default (req,store) => {
     <body>
      <div id="root">${content}</div>
     </body>
+    <script>
+    window.INITIAL_DATA = ${JSON.stringify(store.getState())}
+    </script>
     <script src="bundle.js"></script>
     </html>
 

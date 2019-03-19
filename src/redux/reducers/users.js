@@ -3,7 +3,7 @@
 export default(state = [], { type, payload }) => {
   switch(type) {
     case "FETCH_USERS":
-      return [...state,...payload];
+      return payload;
     default:
       return state;
   }
